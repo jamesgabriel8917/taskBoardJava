@@ -1,0 +1,180 @@
+mar. 23, 2025 2:46:52 PM liquibase.changelog
+INFO: Reading resource: db/changelog/migrations/db.changelog-202503231440.sql
+mar. 23, 2025 2:46:52 PM liquibase.changelog
+INFO: Creating database history table with name: board.DATABASECHANGELOG
+mar. 23, 2025 2:46:53 PM liquibase.changelog
+INFO: Reading from board.DATABASECHANGELOG
+mar. 23, 2025 2:46:53 PM liquibase.lockservice
+INFO: Successfully acquired change log lock
+mar. 23, 2025 2:46:53 PM liquibase.command
+INFO: Using deploymentId: 2752013083
+mar. 23, 2025 2:46:53 PM liquibase.changelog
+INFO: Reading from board.DATABASECHANGELOG
+Running Changeset: db/changelog/migrations/db.changelog-202503231440.sql::202503231440::james
+mar. 23, 2025 2:46:53 PM liquibase.changelog
+SEVERE: ChangeSet db/changelog/migrations/db.changelog-202503231440.sql::202503231440::james encountered an exception.
+liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ENGINE=InnoDB' at line 5 [Failed SQL: (1064) CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+
+) ENGINE=InnoDB]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:497)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:83)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:185)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:141)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1189)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:776)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:126)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:70)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:131)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:120)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.Scope.child(Scope.java:257)
+	at liquibase.Scope.child(Scope.java:261)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:89)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:114)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:112)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:105)
+	at liquibase.command.CommandScope.execute(CommandScope.java:220)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1329)
+	at liquibase.Liquibase.update(Liquibase.java:205)
+	at liquibase.Liquibase.update(Liquibase.java:188)
+	at liquibase.Liquibase.update(Liquibase.java:175)
+	at liquibase.Liquibase.update(Liquibase.java:155)
+	at board.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:40)
+	at Main.main(Main.java:11)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ENGINE=InnoDB' at line 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:491)
+	... 40 more
+
+
+UPDATE SUMMARY
+Run:                          0
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            1
+
+mar. 23, 2025 2:46:53 PM liquibase.util
+INFO: UPDATE SUMMARY
+mar. 23, 2025 2:46:53 PM liquibase.util
+INFO: Run:                          0
+mar. 23, 2025 2:46:53 PM liquibase.util
+INFO: Previously run:               0
+mar. 23, 2025 2:46:53 PM liquibase.util
+INFO: Filtered out:                 0
+mar. 23, 2025 2:46:53 PM liquibase.util
+INFO: -------------------------------
+mar. 23, 2025 2:46:53 PM liquibase.util
+INFO: Total change sets:            1
+mar. 23, 2025 2:46:53 PM liquibase.util
+INFO: Update summary generated
+mar. 23, 2025 2:46:53 PM liquibase.command
+INFO: Update command encountered an exception.
+mar. 23, 2025 2:46:53 PM liquibase.lockservice
+INFO: Successfully released change log lock
+mar. 23, 2025 2:46:53 PM liquibase.command
+INFO: Logging exception.
+ERROR: Exception Details
+ERROR: Exception Primary Class:  SQLSyntaxErrorException
+ERROR: Exception Primary Reason:  You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ENGINE=InnoDB' at line 5
+ERROR: Exception Primary Source:  MySQL 9.2.0
+mar. 23, 2025 2:46:53 PM liquibase.command
+INFO: Command execution complete
+liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/db.changelog-202503231440.sql::202503231440::james:
+     Reason: liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ENGINE=InnoDB' at line 5 [Failed SQL: (1064) CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+
+) ENGINE=InnoDB]
+	at liquibase.command.CommandScope.execute(CommandScope.java:258)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1329)
+	at liquibase.Liquibase.update(Liquibase.java:205)
+	at liquibase.Liquibase.update(Liquibase.java:188)
+	at liquibase.Liquibase.update(Liquibase.java:175)
+	at liquibase.Liquibase.update(Liquibase.java:155)
+	at board.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:40)
+	at Main.main(Main.java:11)
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/db.changelog-202503231440.sql::202503231440::james:
+     Reason: liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ENGINE=InnoDB' at line 5 [Failed SQL: (1064) CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+
+) ENGINE=InnoDB]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:148)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:114)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:112)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:105)
+	at liquibase.command.CommandScope.execute(CommandScope.java:220)
+	... 12 more
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/db.changelog-202503231440.sql::202503231440::james:
+     Reason: liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ENGINE=InnoDB' at line 5 [Failed SQL: (1064) CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+
+) ENGINE=InnoDB]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:820)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:126)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:70)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:131)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:120)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.Scope.child(Scope.java:257)
+	at liquibase.Scope.child(Scope.java:261)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:89)
+	... 20 more
+Caused by: liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ENGINE=InnoDB' at line 5 [Failed SQL: (1064) CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+
+) ENGINE=InnoDB]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:497)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:83)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:185)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:141)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1189)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:776)
+	... 35 more
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ENGINE=InnoDB' at line 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:837)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:685)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:491)
+	... 40 more
